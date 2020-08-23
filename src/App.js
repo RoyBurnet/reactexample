@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
+  const handleClick = () => alert('clicked');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Person handleClick={handleClick} name="Randy" occupation="Developer" />
     </div>
   );
 }
+
+const Person = (props) => {
+  const { handleClick, name, occupation } = props;
+  
+  return (
+    <div>
+      <h1>{name}</h1>
+      <h2>{occupation}</h2>
+      <p onClick={handleClick}>Click me</p>
+    </div>
+  );
+};
 
 export default App;
